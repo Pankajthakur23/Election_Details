@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ElectionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('create',[ElectionController::class,'create']);
+Route::post('store',[ElectionController::class,'store'])->name('store');
+Route::get('Index',[ElectionController::class,'Index'])->name('Index');
+Route::get('edit/{id}',[ElectionController::class,'edit'])->name('edit');
+Route::post('update/{election}',[ElectionController::class,'update'])->name('update');
+Route::get('delete/{election}',[ElectionController::class,'delete'])->name('delete');
